@@ -1,0 +1,9 @@
+dec = 127
+bina = []
+i = 1
+while i < 8:
+    resto = dec%2
+    bina.append(resto)
+    dec = dec//2
+    i=i+1
+print(bina)
