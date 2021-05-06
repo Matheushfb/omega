@@ -1,8 +1,12 @@
 import Omega
 import sys
+import base64
 
-arquivo = open(sys.argv[1],'r')
+text = open(sys.argv[1],'r')
+arquivo = text.encode('ascii') 
+base64_bytes = base64.b64encode(arquivo)
 o = Omega.Omega(arquivo, sys.argv[2])
+
 for linha in arquivo:
     basemontador = o.base_montador(len(linha))
     montador = o.gera_montador(int(sys.argv[2]),basemontador)
