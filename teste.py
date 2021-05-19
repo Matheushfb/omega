@@ -1,17 +1,15 @@
 import Omega
 import sys
 import base64
-import dectobin
+#import dectobin
 
-text = open(sys.argv[1],'rb')
-arquivo = text.read() 
-#base64_bytes = base64.b64encode(arquivo)
-o = Omega.Omega(text, sys.argv[2])
+name = sys.argv[1]
+o = Omega.Omega(name, sys.argv[2])
 
 #for linha in arquivo:
-basemontador = o.base_montador(len(arquivo))
+basemontador = o.base_montador(len(name))
 montador = o.gera_montador(int(sys.argv[2]),basemontador)
-string = o.permuta(montador,list(arquivo))
+string = o.permuta(montador,list(name))
 decimal = o.gera_decimal(basemontador,montador)
 #print(text)
 print(string)

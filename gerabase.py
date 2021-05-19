@@ -10,8 +10,9 @@ def bmont(lenstr):
         r = p//q 
         base.append(r)
         i = i - 1
+    print (base)
     return(base)
     
-#lenstr = 0
-#bmont(lenstr)
+lenstr = 5
+bmont(lenstr)
 

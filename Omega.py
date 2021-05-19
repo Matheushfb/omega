@@ -1,22 +1,37 @@
 import sys
 import argparse
 import math
+import numpy as np 
+
 
 class Omega:
     def __init__(self,lenstr,dec):
         self.lenstr = lenstr
         self.dec = dec
 
+##    def base_montador(self,lenstr):
+  #      self.base = np.zeros(lenstr-1,int)
+   #     i = 0
+   #     p = math.factorial(lenstr)
+    #    while i <= lenstr - 2:
+     #       q = math.factorial((lenstr-i))
+      #      r = p // q
+          #  self.base[lenstr-2-i]=r 
+          #  i = i + 1
+        #return self.base
+
+
     def base_montador(self,lenstr):
-        self.base = []
+        self.base = np.zeros(lenstr,int)
         i = lenstr - 1
         p = math.factorial(lenstr)
         while i > 0:
-            q = math.factorial((lenstr - i) + 1)
+            q = math.factorial((lenstr-i))
             r = p // q
-            self.base.append(r)
+            self.base[i]=r 
             i = i - 1
         return self.base
+
 
     def gera_montador(self,dec,basemontador):
         i = 0
