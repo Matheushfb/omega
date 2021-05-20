@@ -10,7 +10,7 @@ class Omega:
         self.dec = dec
 
     def base_montador(self,lenstr):
-        self.base = np.zeros(lenstr-1,int)
+        self.base = np.empty(lenstr-1,int)
         i = 0
         p = math.factorial(lenstr)
         while i <= lenstr - 2:
@@ -20,25 +20,24 @@ class Omega:
             i = i + 1
         return self.base
 
-
-
     def gera_montador(self,dec,basemontador):
         i = 0
         limite = len(basemontador)
-        self.montador = []
+        self.montador = np.empty(limite,int)
+        print (self.montador)
         while i < limite:
             if dec >= math.factorial(limite + 1):
                 print("Limite do digito decimal ultrapasado")
                 sys.exit()
             if dec < basemontador[i]:
-                self.montador.append(0)
+                self.montador[i]=0
                 i = i + 1
             else:
                 result = dec // basemontador[i]
                 dec = dec % basemontador[i]
-                self.montador.append(result)
+                self.montador[i]=result
                 i = i + 1
-
+        print (self.montador)
         return self.montador
 
     def permuta(self,montador,nome):
