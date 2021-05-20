@@ -1,6 +1,5 @@
 import sys
 
-dec = int(sys.argv[1])
 def dectobin(dec):
     binary = [0]*8
     i = 7
@@ -11,4 +10,3 @@ def dectobin(dec):
         i=i-1
     print(binary)
 
-dectobin(dec)

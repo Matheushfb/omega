@@ -1,19 +1,13 @@
 import Omega
 import sys
 import base64
-import dectobin
-import binascii
+#import dectobin
 
 name = sys.argv[1]
 o = Omega.Omega(name,sys.argv[2])
-    
-message = name
-message_bytes = message.encode('ascii')
-base64_bytes = base64.b64encode(message_bytes)
-base64_message = base64_bytes.decode('ascii')
-teste = dectobin(base64_message)
 
-print(teste)
+for i in name:
+    dec=ord(i)
 
 #for linha in arquivo:
 basemontador = o.base_montador(len(name))
