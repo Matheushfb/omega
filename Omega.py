@@ -9,28 +9,17 @@ class Omega:
         self.lenstr = lenstr
         self.dec = dec
 
-##    def base_montador(self,lenstr):
-  #      self.base = np.zeros(lenstr-1,int)
-   #     i = 0
-   #     p = math.factorial(lenstr)
-    #    while i <= lenstr - 2:
-     #       q = math.factorial((lenstr-i))
-      #      r = p // q
-          #  self.base[lenstr-2-i]=r 
-          #  i = i + 1
-        #return self.base
-
-
     def base_montador(self,lenstr):
-        self.base = np.zeros(lenstr,int)
-        i = lenstr - 1
+        self.base = np.zeros(lenstr-1,int)
+        i = 0
         p = math.factorial(lenstr)
-        while i > 0:
+        while i <= lenstr - 2:
             q = math.factorial((lenstr-i))
             r = p // q
-            self.base[i]=r 
-            i = i - 1
+            self.base[lenstr-2-i]=r 
+            i = i + 1
         return self.base
+
 
 
     def gera_montador(self,dec,basemontador):
