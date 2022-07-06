@@ -13,12 +13,13 @@ class BinTools:
         return self.b
     
     def esteira_binaria(self,b):
-        i,j,k = 0,4,0
-        l = len(b)
+        i,j,k = 0,8,0
+        l = len(string)
+        print(b)
         while k < l:
-            b[i:j],b[j:(j+j)]=b[j:(j+j)],b[i:j]
-            i=i+4
-            j=j+4
+            b[i:(i+4)],b[j:(j-4)]=b[j:(j-4)],b[i:(i+4)]
+            i=i+8
+            j=j+8
             k=k+1
         return b
 
