@@ -3,16 +3,16 @@ import argparse
 import math
 
 class Omega:
-    def __init__(self,lenstr,dec):
-        self.lenstr = lenstr
+    def __init__(self,string,dec):
+        self.string = string
         self.dec = dec
 
-    def base_montador(self,lenstr):
+    def base_montador(self,string):
         self.base = []
-        i = lenstr - 1
-        p = math.factorial(lenstr)
+        i = string - 1
+        p = math.factorial(string)
         while i > 0:
-            q = math.factorial((lenstr - i) + 1)
+            q = math.factorial((string - i) + 1)
             r = p // q
             self.base.append(r)
             i = i - 1
@@ -55,23 +55,16 @@ class Omega:
             i = i + 1
         return(dec)
 
+if __name__ == '__main__':
+    import sys
+    nome = sys.argv[1]
+    a = Omega(nome, sys.argv[2])
+    basemontador = a.base_montador(len(nome))
+    montador = a.gera_montador(int(sys.argv[2]),basemontador)
+    string = a.permuta(montador,list(nome))
+    decimal = a.gera_decimal(basemontador,montador)
+    print (basemontador)
+    print (montador)
+    print (string)
+    print (decimal)
 
-
-#nome = ["m","a","t","h","e","u","s"]
-##nome = sys.argv[1]
-##a = Omega(nome, sys.argv[2])
-##basemontador = a.base_montador(len(nome))
-##montador = a.gera_montador(int(sys.argv[2]),basemontador)
-##string = a.permuta(montador,list(nome))
-##decimal = a.gera_decimal(basemontador,montador)
-##print (basemontador)
-##print (montador)
-##print (string)
-##print (decimal)
-#      base = bmont(lenstr)
-#      dec = int(sys.argv[2])
-#      montador = gmontador(dec, base)
-#      string = permuta(montador,list(sys.argv[1]))
-#      print(base)
-#      print(montador)
-#      print(string)
