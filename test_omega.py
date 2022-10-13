@@ -1,9 +1,11 @@
 import Omega
+import pytest
+
 
 class TestOmega:
     def teste_basemontador_1(self):
         string = "asdf"
-        o = Omega.Omega(string,0)
+        o = Omega.Omega(string, 0)
         assert o.base_montador(len(string)) == ([12,4,1])
     def teste_basemontador_2(self):
         string = "matheus"
