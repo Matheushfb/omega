@@ -46,6 +46,16 @@ class Omega:
             i = i - 1
         return nome
 
+
+    def depermuta(self,montador,nome):
+        i = 0
+        while i < len(nome)-1:
+            e = i + 1
+            d = e - montador[i]
+            nome[e],nome[d]=nome[d],nome[e]
+            i = i + 1
+        return nome
+
     def gera_decimal(self,basemontador,montador):
         limite = len(basemontador)
         i = 0
@@ -59,12 +69,13 @@ if __name__ == '__main__':
     import sys
     nome = sys.argv[1]
     a = Omega(nome, sys.argv[2])
+    i = 0
     basemontador = a.base_montador(len(nome))
     montador = a.gera_montador(int(sys.argv[2]),basemontador)
     string = a.permuta(montador,list(nome))
     decimal = a.gera_decimal(basemontador,montador)
-    print (basemontador)
-    print (montador)
-    print (string)
-    print (decimal)
+      #print (basemontador)
+        #print (montador)
+    print (decimal, string)
+        #print (decimal)
 
