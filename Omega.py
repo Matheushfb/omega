@@ -66,16 +66,25 @@ class Omega:
         return(dec)
 
 if __name__ == '__main__':
-    import sys
     nome = sys.argv[1]
-    a = Omega(nome, sys.argv[2])
+    a = Omega(nome, 0)
     i = 0
-    basemontador = a.base_montador(len(nome))
-    montador = a.gera_montador(int(sys.argv[2]),basemontador)
-    string = a.permuta(montador,list(nome))
-    decimal = a.gera_decimal(basemontador,montador)
-      #print (basemontador)
-        #print (montador)
-    print (decimal, string)
-        #print (decimal)
+    conta = 0
 
+    basemontador = a.base_montador(len(nome))
+
+    while i < math.factorial(len(nome)):
+        montador = a.gera_montador(i,basemontador)
+        string = a.permuta(montador,list(nome))
+        decimal = a.gera_decimal(basemontador,montador)
+        i = i + 1
+        j = 0
+        while j < len(nome)-1:
+            if string[j] == nome[j]:
+              #print("is not chaotique!")
+                break
+            else:
+                j = j + 1
+            if j == len(nome)-1:
+                conta = conta + 1
+                print (conta,decimal,string)
