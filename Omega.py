@@ -6,13 +6,14 @@ class Omega:
     def __init__(self,string,dec):
         self.string = string
         self.dec = dec
+        self.lenstr = len(string)
 
-    def base_montador(self,string):
+    def base_montador(self):
         self.base = []
-        i = string - 1
-        p = math.factorial(string)
+        i = self.lenstr - 1
+        p = math.factorial(self.lenstr)
         while i > 0:
-            q = math.factorial((string - i) + 1)
+            q = math.factorial((self.lenstr - i) + 1)
             r = p // q
             self.base.append(r)
             i = i - 1
@@ -66,16 +67,11 @@ class Omega:
         return(dec)
 
 if __name__ == '__main__':
-    import sys
     nome = sys.argv[1]
     a = Omega(nome, sys.argv[2])
-    i = 0
-    basemontador = a.base_montador(len(nome))
+    basemontador = a.base_montador()
     montador = a.gera_montador(int(sys.argv[2]),basemontador)
     string = a.permuta(montador,list(nome))
     decimal = a.gera_decimal(basemontador,montador)
-      #print (basemontador)
-        #print (montador)
     print (decimal, string)
-        #print (decimal)
 
