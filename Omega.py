@@ -9,15 +9,21 @@ class Omega:
         self.lenstr = lenstr
         self.dec = dec
 
-    def base_montador(self,lenstr):
-        self.base = np.empty(lenstr-1,int)
-        i = 0
-        p = math.factorial(lenstr)
-        while i <= lenstr - 2:
-            q = math.factorial((lenstr-i))
-            r = p // q
-            self.base[lenstr-2-i]=r 
-            i = i + 1
+    def base_montador(self, lenstr: int) -> np.ndarray:
+        """Constrói a base fatorial para o sistema de numeração factorádico.
+
+        Args:
+            lenstr: Tamanho da string (quantidade de elementos a permutar).
+
+        Returns:
+            Array numpy com os pesos posicionais da base fatorial.
+        """
+        size = lenstr - 1
+        self.base = np.empty(size, dtype=int)
+        acc = 1
+        for idx in range(size - 1, -1, -1):
+            self.base[idx] = acc
+            acc *= idx + 2
         return self.base
 
     def gera_montador(self,dec,basemontador):
