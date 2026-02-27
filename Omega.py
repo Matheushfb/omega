@@ -26,22 +26,31 @@ class Omega:
             acc *= idx + 2
         return self.base
 
-    def gera_montador(self,dec,basemontador):
-        i = 0
-        limite = len(basemontador)
-        self.montador = np.empty(limite,int)
-        while i < limite:
-            if dec >= math.factorial(limite + 1):
-                print("Limite do digito decimal ultrapasado")
-                sys.exit()
-            if dec < basemontador[i]:
-                self.montador[i]=0
-                i = i + 1
-            else:
-                result = dec // basemontador[i]
-                dec = dec % basemontador[i]
-                self.montador[i]=result
-                i = i + 1
+    def gera_montador(self, dec: int, base_montador: np.ndarray) -> np.ndarray:
+        """Converte um número decimal para representação em base fatorial (código de Lehmer).
+
+        Args:
+            dec: Número decimal a ser convertido (índice da permutação).
+            base_montador: Array com os pesos da base fatorial.
+
+        Returns:
+            Array numpy com os dígitos na base factorádica.
+
+        Raises:
+            ValueError: Se dec ultrapassar o limite para o tamanho da base.
+        """
+        limite = len(base_montador)
+        max_decimal = math.factorial(limite + 1)
+
+        if dec >= max_decimal:
+            raise ValueError("Limite do dígito decimal ultrapassado")
+
+        self.montador = np.empty(limite, dtype=int)
+        resto = dec
+
+        for i in range(limite):
+            self.montador[i], resto = divmod(resto, base_montador[i])
+
         return self.montador
 
     def permuta(self,montador,nome):
