@@ -58,3 +58,18 @@
 **Branch criada:** `refactor/gera-montador`
 
 ---
+
+## Interação 5: Refatoração da função permuta
+
+**Usuário:** Solicitou (via comando /cria-log) refatorar a função `permuta` gerando um branch e documentar a interação no log.
+
+**Alterações realizadas em `permuta`:**
+1. PEP 8: formatação (espaços nos parâmetros)
+2. Type hints (PEP 484): `montador: np.ndarray`, `nome: list` e `-> list`
+3. Docstring (PEP 257) com Args e Returns
+4. Substituição do loop `while` por `for range(len(nome)-1, 0, -1)`
+5. Variáveis renomeadas: `e` → implícito em `i`, `d` → `pos_destino` (mais descritivo)
+
+**Branch criada:** `refactor/permuta`
+
+---

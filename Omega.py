@@ -53,13 +53,22 @@ class Omega:
 
         return self.montador
 
-    def permuta(self,montador,nome):
-        i = len(nome) - 1
-        while i > 0:
-            e = i
-            d = e - montador[i - 1]
-            nome[e],nome[d]=nome[d],nome[e]
-            i = i - 1
+    def permuta(self, montador: np.ndarray, nome: list) -> list:
+        """Aplica o montador (código de Lehmer) para gerar a permutação correspondente.
+
+        Modifica a lista nome in-place de direita para esquerda, realizando
+        trocas baseadas nos valores do montador.
+
+        Args:
+            montador: Array com os dígitos na base factorádica.
+            nome: Lista mutável a ser permutada (ex: list("matheus")).
+
+        Returns:
+            A mesma lista nome, agora permutada.
+        """
+        for i in range(len(nome) - 1, 0, -1):
+            pos_destino = i - montador[i - 1]
+            nome[i], nome[pos_destino] = nome[pos_destino], nome[i]
         return nome
 
     def gera_decimal(self,basemontador,montador):
