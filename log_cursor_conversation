@@ -88,3 +88,20 @@
 **Branch criada:** `refactor/gera-decimal`
 
 ---
+
+## Interação 7: CLI e remoção de comentários
+
+**Usuário:** Solicitou (via comando /cria-log) retirar todas as linhas iniciadas em "#" e adicionar código para chamar o Omega via linha de comando passando os parâmetros necessários.
+
+**Alterações realizadas:**
+1. Remoção de todas as linhas comentadas (# e ##)
+2. Adição da função `main()` com interface via linha de comando
+3. Bloco `if __name__ == "__main__": main()` para execução direta
+
+**Uso:** `python Omega.py <string> <dec>`
+- `string`: texto a ser permutado (ex: matheus)
+- `dec`: índice da permutação (0 a n!-1)
+
+**Exemplo:** `python Omega.py matheus 10` → imprime a string permutada
+
+---

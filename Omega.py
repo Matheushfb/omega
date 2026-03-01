@@ -1,5 +1,4 @@
 import sys
-import argparse
 import math
 import numpy as np 
 
@@ -87,22 +86,24 @@ class Omega:
         )
 
 
+def main():
+    """Permite chamar via linha de comando: python Omega.py <string> <dec>"""
+    if len(sys.argv) != 3:
+        print("Uso: python Omega.py <string> <dec>")
+        print("  string: texto a ser permutado (ex: matheus)")
+        print("  dec: índice da permutação (0 a n!-1)")
+        sys.exit(1)
 
-#nome = ["m","a","t","h","e","u","s"]
-##nome = sys.argv[1]
-##a = Omega(nome, sys.argv[2])
-##basemontador = a.base_montador(len(nome))
-##montador = a.gera_montador(int(sys.argv[2]),basemontador)
-##string = a.permuta(montador,list(nome))
-##decimal = a.gera_decimal(basemontador,montador)
-##print (basemontador)
-##print (montador)
-##print (string)
-##print (decimal)
-#      base = bmont(lenstr)
-#      dec = int(sys.argv[2])
-#      montador = gmontador(dec, base)
-#      string = permuta(montador,list(sys.argv[1]))
-#      print(base)
-#      print(montador)
-#      print(string)
+    nome = sys.argv[1]
+    dec = int(sys.argv[2])
+
+    o = Omega(len(nome), dec)
+    base = o.base_montador(len(nome))
+    montador = o.gera_montador(dec, base)
+    resultado = o.permuta(montador, list(nome))
+
+    print("".join(resultado))
+
+
+if __name__ == "__main__":
+    main()
