@@ -71,14 +71,20 @@ class Omega:
             nome[i], nome[pos_destino] = nome[pos_destino], nome[i]
         return nome
 
-    def gera_decimal(self,basemontador,montador):
-        limite = len(basemontador)
-        i = 0
-        dec = 0
-        while i < limite:
-            dec = dec + basemontador[i] * montador[i]
-            i = i + 1
-        return(dec)
+    def gera_decimal(self, base_montador: np.ndarray, montador: np.ndarray) -> int:
+        """Converte o montador (base factorádica) de volta para número decimal.
+
+        Args:
+            base_montador: Array com os pesos da base fatorial.
+            montador: Array com os dígitos na base factorádica.
+
+        Returns:
+            O número decimal correspondente (índice da permutação).
+        """
+        return sum(
+            base_montador[i] * montador[i]
+            for i in range(len(base_montador))
+        )
 
 
 

@@ -73,3 +73,18 @@
 **Branch criada:** `refactor/permuta`
 
 ---
+
+## Interação 6: Refatoração da função gera_decimal
+
+**Usuário:** Solicitou (via comando /cria-log) refatorar a função `gera_decimal`, criar uma branch e fazer push para o repositório.
+
+**Alterações realizadas em `gera_decimal`:**
+1. PEP 8: formatação (espaços nos parâmetros)
+2. Type hints (PEP 484): `base_montador: np.ndarray`, `montador: np.ndarray` e `-> int`
+3. Docstring (PEP 257) com Args e Returns
+4. Nome de parâmetro em snake_case: `basemontador` → `base_montador`
+5. Substituição do loop `while` por comprehension com `sum()` (mais idiomático e conciso)
+
+**Branch criada:** `refactor/gera-decimal`
+
+---
